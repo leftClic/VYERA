@@ -1,0 +1,9 @@
+{
+  "mcp": {
+    "context7": {
+      "enabled": true,
+      "mode": "local",
+      "contextDir": ".context"
+    }
+  }
+}
