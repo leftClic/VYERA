@@ -1,0 +1,531 @@
+/**
+ * VYERA Research CSS Architecture
+ * Aesthetic: Premium, Low-Key Lighting, Scientific, Metallic
+ */
+
+ :root {
+    /* Core Colors */
+    --color-bg-base: #050505;
+    --color-bg-surface: #0a0a0a;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #999999;
+    
+    /* Low-Key Lighting / Metallic Accents */
+    --color-border-subtle: #1f2026;
+    --color-border-highlight: #454752;
+    --color-glow: rgba(255, 255, 255, 0.15);
+    
+    /* Typography */
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    
+    /* Transitions */
+    --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================
+   Reset & Base Styles
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg-base);
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   Typography
+   ========================================= */
+h1, h2, h3, h4, .logo, .footer-logo {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+}
+
+/* =========================================
+   Navbar (Header)
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--color-border-subtle);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition-smooth);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-text-primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover {
+    color: var(--color-text-primary);
+    text-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+/* =========================================
+   Hero Section ("Low-Key Lighting")
+   ========================================= */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5%;
+    position: relative;
+    overflow: hidden;
+    background-color: #0a0a0a;
+}
+
+/* Large Radial Glow Effect (Spotlight) */
+.hero-glow {
+    position: absolute;
+    width: 150vw;
+    height: 150vw;
+    max-width: 1200px;
+    max-height: 1200px;
+    background: radial-gradient(circle, rgba(40, 42, 53, 0.3) 0%, rgba(10, 10, 10, 0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 900px;
+    z-index: 2;
+    margin-top: 5rem; /* Account for fixed nav */
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--color-text-secondary);
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+/* Premium Metallic CTA Button */
+.cta-button {
+    display: inline-block;
+    padding: 1.2rem 3.5rem;
+    background: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: #ffffff;
+    z-index: -1;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.cta-button:hover {
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+}
+
+.cta-button:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* =========================================
+   Catalog Section
+   ========================================= */
+.catalog-section {
+    padding: 8rem 5%;
+    background-color: var(--color-bg-base);
+    position: relative;
+}
+
+.catalog-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-primary);
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Product Cards */
+.product-card {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-border-highlight);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.03);
+}
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 3/4; /* Forced 3:4 Aspect Ratio per instructions */
+    background-color: #000;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    filter: grayscale(30%) contrast(1.1) brightness(0.8);
+    transition: transform 0.8s ease, opacity 0.5s ease, filter 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    opacity: 1;
+    filter: grayscale(0%) contrast(1.1) brightness(1);
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+    background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.8) 100%);
+}
+
+.product-info h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Premium Metallic Inquire Button */
+.select-btn {
+    margin-top: auto;
+    width: 100%;
+    padding: 1rem;
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    border-radius: 1px;
+    transition: var(--transition-smooth);
+    opacity: 0.8;
+}
+
+.select-btn:hover {
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   Interest Form Section
+   ========================================= */
+.form-section {
+    padding: 8rem 5%;
+    background: radial-gradient(circle at center, #111116 0%, var(--color-bg-base) 70%);
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--color-border-subtle);
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    padding: 4rem 3rem;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 2px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.form-header h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+}
+
+.form-header p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.vyera-form .input-group {
+    margin-bottom: 1.75rem;
+}
+
+.vyera-form label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-secondary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.vyera-form input,
+.vyera-form select {
+    width: 100%;
+    padding: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--color-border-subtle);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border-radius: 1px;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+.vyera-form input:focus,
+.vyera-form select:focus {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    background-color: rgba(20, 20, 20, 0.8);
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: '▼';
+    font-size: 0.6rem;
+    color: var(--color-text-secondary);
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.vyera-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    transition: var(--transition-smooth);
+}
+
+.submit-button:hover {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    background-color: #f0f0f0;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+footer {
+    padding: 5rem 5% 3rem;
+    background-color: var(--color-bg-base);
+    border-top: 1px solid var(--color-border-subtle);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--color-text-primary);
+    margin-bottom: 2rem;
+}
+
+.disclaimer {
+    color: #666666;
+    font-size: 0.8rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+}
+
+.copyright {
+    color: #444444;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+/* =========================================
+   Responsive Breakpoints
+   ========================================= */
+
+/* Tablet & Smaller Desktop */
+@media (max-width: 1024px) {
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 5%;
+    }
+    
+    .nav-links {
+        gap: 1.5rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.75rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.25rem;
+        margin-top: 2rem;
+    }
+    
+    .hero-glow {
+        width: 200vw;
+        height: 200vw;
+    }
+    
+    .catalog-section {
+        padding: 6rem 5%;
+    }
+    
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .form-section {
+        padding: 6rem 5%;
+    }
+    
+    .form-wrapper {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .form-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+    
+    .cta-button {
+        padding: 1rem 2.5rem;
+    }
+}
