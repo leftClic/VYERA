@@ -1,5 +1,5 @@
 /**
- * VYERA Research - Phase 1 Frontend Logic
+ * VYERA Research - Phase 3 Frontend Logic
  * Strictly Vanilla JS
  */
 
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * Connects product card 'Inquire' buttons directly to the form's select element
      */
     const inquiryButtons = document.querySelectorAll('.select-btn');
-    const peptideSelect = document.getElementById('peptide');
+    const peptideSelect = document.getElementById('productSelect');
     const formSection = document.getElementById('interest-form-section');
 
     inquiryButtons.forEach(button => {
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
                 
-                // Visual feedback: focus the select element momentarily (optional polish)
+                // Visual feedback: focus the select element momentarily
                 peptideSelect.classList.add('highlight');
                 setTimeout(() => peptideSelect.classList.remove('highlight'), 1000);
             }
@@ -60,41 +60,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /**
-     * 3. Form Submission Handling (Phase 1 Stub)
-     * Validates and prevents default submission until Phase 2 API is ready.
+     * 3. Form Submission Handling (Phase 3 Integration)
+     * Intercepts submit, sends fetch to backend, redirects to WhatsApp
      */
-    const interestForm = document.getElementById('interest-form');
+    const leadForm = document.getElementById('leadForm');
     
-    if (interestForm) {
-        interestForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+    if (leadForm) {
+        leadForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent default page reload
             
-            // Gather values for logging (proving logic works for Phase 2)
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                peptide: document.getElementById('peptide').value,
-                quantity: document.getElementById('quantity').value
-            };
-            
-            console.log('Phase 1 - Form Intercepted:', formData);
-            
-            // Temporary UI feedback
-            const submitBtn = interestForm.querySelector('.submit-button');
+            const submitBtn = leadForm.querySelector('.submit-button');
             const originalText = submitBtn.textContent;
             
-            submitBtn.textContent = 'Processing...';
-            submitBtn.style.backgroundColor = '#555';
-            submitBtn.style.color = '#fff';
+            // UI Feedback
+            submitBtn.textContent = 'Procesando...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            submitBtn.style.cursor = 'not-allowed';
             
-            // Simulate processing time
-            setTimeout(() => {
-                alert(`Thank you, ${formData.name}. Phase 1 execution successful.\nBackend Supabase integration and WhatsApp redirection will be activated in Phase 2.`);
+            // Extract DOM values
+            const fullName = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const productSelect = document.getElementById('productSelect').value;
+            const quantity = document.getElementById('quantity').value;
+            
+            const payload = { fullName, phone, productSelect, quantity };
+            
+            try {
+                // Asynchronous POST request to Render backend
+                const response = await fetch('https://vyera-backend.onrender.com/api/leads', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (response.ok) {
+                    // Success! Construct WhatsApp URL
+                    const waNumber = '50587618158';
+                    const rawMessage = `Hola VYERA Research. Soy ${fullName}. Me interesa el compuesto ${productSelect} (${quantity} unidades). Mi número es ${phone}.`;
+                    const encodedMessage = encodeURIComponent(rawMessage);
+                    const waUrl = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+                    
+                    // Redirect to WhatsApp immediately
+                    window.location.href = waUrl;
+                } else {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || 'Network response was not ok.');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('Ocurrió un error al procesar su solicitud. Por favor, intente de nuevo.');
+                
+                // Revert UI State
                 submitBtn.textContent = originalText;
-                submitBtn.style.backgroundColor = '';
-                submitBtn.style.color = '';
-                interestForm.reset();
-            }, 800);
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+            }
         });
     }
 });
