@@ -404,19 +404,31 @@ h1, h2, h3, h4, .logo, .footer-logo {
     justify-content: center;
     padding: 10%;
     color: var(--color-text-primary);
+    align-items: flex-end;
+    text-align: right;
 }
 
 .inquiry-image-side h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     letter-spacing: 0.15em;
     margin-bottom: 2rem;
     line-height: 1.2;
+}
+
+.inquiry-divider {
+    width: 200px;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    margin: 0 0 1.5rem auto; /* Arriba 0, Derecha 0, Abajo 1.5rem, Izquierda auto */
 }
 
 .inquiry-image-side p {
     color: rgba(255, 255, 255, 0.7);
     font-size: 1rem;
     line-height: 1.6;
+    max-width: 250px;
+    margin-left: auto;
+    text-align: right;
 }
 
 .inquiry-form-side {
@@ -628,6 +640,19 @@ footer {
         grid-template-columns: 1fr;
     }
     
+    .trust-badges-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    
+    .badge-item:nth-child(2) {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+        padding: 3rem 0;
+    }
+    
     .inquiry-image-side {
         padding: 4rem 5%;
         text-align: center;
@@ -655,4 +680,68 @@ footer {
     .cta-button {
         padding: 1rem 2.5rem;
     }
+}
+
+/* =========================================
+   Trust Badges Section
+   ========================================= */
+.trust-badges-section {
+    background-color: var(--color-bg-base);
+    padding: 5rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trust-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge-icon {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 0;
+    object-fit: contain;
+}
+
+.badge-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.badge-item h3 {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 0;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.badge-item p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    max-width: 280px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.badge-item:nth-child(2) {
+    border-left: 1px solid rgba(255,255,255,0.15);
+    border-right: 1px solid rgba(255,255,255,0.15);
+    padding: 0 2rem;
 }

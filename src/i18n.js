@@ -20,6 +20,12 @@ const translations = {
         "form_compound_default": "Select a compound...",
         "form_qty": "Quantity (Vials)",
         "form_submit": "Submit Inquiry",
+        "badge_1_title": "ADVANCED SCIENCE",
+        "badge_1_desc": "We explore the potential of cutting-edge compounds with the highest quality standards.",
+        "badge_2_title": "SCIENTIFIC EVIDENCE",
+        "badge_2_desc": "Based on research and data for a reliable and transparent approach.",
+        "badge_3_title": "A HEALTHIER TOMORROW",
+        "badge_3_desc": "Driving progress in health, performance and longevity.",
         "footer_disclaimer": "All products are strictly for research and laboratory use only. Not for human consumption.",
         "footer_copyright": "\\u00A9 2026 VYERA Research. All rights reserved."
     },
@@ -44,6 +50,12 @@ const translations = {
         "form_compound_default": "Seleccione un compuesto...",
         "form_qty": "Cantidad (Viales)",
         "form_submit": "Enviar Consulta",
+        "badge_1_title": "CIENCIA AVANZADA",
+        "badge_1_desc": "Exploramos el potencial de compuestos de vanguardia con los m\\u00E1s altos est\\u00E1ndares de calidad.",
+        "badge_2_title": "EVIDENCIA CIENT\\u00CDFICA",
+        "badge_2_desc": "Basado en investigaciones y datos para un enfoque confiable y transparente.",
+        "badge_3_title": "UN MA\\u00D1ANA M\\u00C1S SALUDABLE",
+        "badge_3_desc": "Impulsando el progreso en salud, rendimiento y longevidad.",
         "footer_disclaimer": "Todos los productos son estrictamente para investigaci\\u00F3n y uso en laboratorio. No para consumo humano.",
         "footer_copyright": "\\u00A9 2026 VYERA Research. Todos los derechos reservados."
     }
