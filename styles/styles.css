@@ -85,6 +85,7 @@ h1, h2, h3, h4, .logo, .footer-logo {
 .nav-links {
     display: flex;
     gap: 2.5rem;
+    align-items: center;
 }
 
 .nav-links a {
@@ -101,19 +102,37 @@ h1, h2, h3, h4, .logo, .footer-logo {
     text-shadow: 0 0 15px rgba(255,255,255,0.4);
 }
 
+.lang-toggle {
+    background: transparent;
+    border: 1px solid var(--color-border-subtle);
+    color: var(--color-text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
+}
+
+.lang-toggle:hover {
+    color: var(--color-text-primary);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
 /* =========================================
    Hero Section ("Low-Key Lighting")
    ========================================= */
 .hero-section {
-    min-height: 100vh;
+    position: relative;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 0 5%;
-    position: relative;
     overflow: hidden;
     background-color: #0a0a0a;
+    background-image: url('../public/images/bg-desktop.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 /* Large Radial Glow Effect (Spotlight) */
@@ -137,15 +156,73 @@ h1, h2, h3, h4, .logo, .footer-logo {
     margin-top: 5rem; /* Account for fixed nav */
 }
 
-.hero-content h1 {
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    margin-bottom: 1.5rem;
-    color: #ffffff;
-    text-transform: uppercase;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+.hero-section h1, .hero-section p, .hero-top-left, .hero-top-right {
+    text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.9);
 }
 
-.hero-content p {
+/* Floating Elements */
+.hero-top-left {
+    position: absolute;
+    top: 22%;
+    left: 18%;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.hero-top-left p, .hero-top-right p {
+    margin-bottom: 2rem;
+}
+
+.hero-top-left p:first-child {
+    margin-bottom: 5rem;
+}
+
+.hero-top-right {
+    position: absolute;
+    top: 25%;
+    right: 28%;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+    text-transform: uppercase;
+    text-align: right;
+    z-index: 10;
+}
+
+.hero-center {
+    text-align: center;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-main-logo {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.hero-divider {
+    width: 40px;
+    border: 1px solid rgba(255,255,255,0.5);
+    margin: 0 auto 30px auto;
+}
+
+.hero-center h1 {
+    font-size: 3.2rem;
+    letter-spacing: 2px;
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.hero-center p {
     font-size: clamp(1rem, 2vw, 1.25rem);
     color: var(--color-text-secondary);
     margin-bottom: 3.5rem;
@@ -305,25 +382,54 @@ h1, h2, h3, h4, .logo, .footer-logo {
 }
 
 /* =========================================
-   Interest Form Section
+   Inquiry Section
    ========================================= */
-.form-section {
-    padding: 8rem 5%;
-    background: radial-gradient(circle at center, #111116 0%, var(--color-bg-base) 70%);
-    display: flex;
-    justify-content: center;
+.inquiry-section {
     border-top: 1px solid var(--color-border-subtle);
+}
+
+.inquiry-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+}
+
+.inquiry-image-side {
+    background: url('../public/images/petri-dish.jpeg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10%;
+    color: var(--color-text-primary);
+}
+
+.inquiry-image-side h2 {
+    font-size: 2rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.inquiry-image-side p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.inquiry-form-side {
+    background-color: #050505;
+    padding: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-wrapper {
     width: 100%;
-    max-width: 600px;
-    background-color: rgba(10, 10, 10, 0.8);
-    backdrop-filter: blur(20px);
-    padding: 4rem 3rem;
-    border: 1px solid var(--color-border-subtle);
-    border-radius: 2px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    max-width: 500px;
 }
 
 .form-header {
@@ -360,22 +466,22 @@ h1, h2, h3, h4, .logo, .footer-logo {
 .vyera-form input,
 .vyera-form select {
     width: 100%;
-    padding: 1.2rem;
-    background-color: rgba(0, 0, 0, 0.4);
-    border: 1px solid var(--color-border-subtle);
+    padding: 1rem 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--color-text-primary);
     font-family: var(--font-body);
     font-size: 1rem;
-    border-radius: 1px;
     outline: none;
     transition: var(--transition-smooth);
 }
 
 .vyera-form input:focus,
 .vyera-form select:focus {
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
-    background-color: rgba(20, 20, 20, 0.8);
+    border-bottom-color: #ffffff;
+    background-color: transparent;
+    box-shadow: none;
 }
 
 .select-wrapper {
@@ -477,6 +583,10 @@ footer {
         padding: 1rem 5%;
     }
     
+    .hero-section {
+        background-image: url('../public/images/bg-mobile.jpeg');
+    }
+    
     .nav-links {
         gap: 1.5rem;
     }
@@ -485,9 +595,17 @@ footer {
         font-size: 0.75rem;
     }
     
-    .hero-content h1 {
+    .hero-main-logo {
+        width: 160px;
+    }
+    
+    .hero-center h1 {
         font-size: 2.25rem;
         margin-top: 2rem;
+    }
+    
+    .hero-top-left, .hero-top-right {
+        display: none; /* Hide on mobile to avoid clutter */
     }
     
     .hero-glow {
@@ -506,12 +624,21 @@ footer {
         margin: 0 auto;
     }
     
-    .form-section {
-        padding: 6rem 5%;
+    .inquiry-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .inquiry-image-side {
+        padding: 4rem 5%;
+        text-align: center;
+    }
+
+    .inquiry-form-side {
+        padding: 4rem 5%;
     }
     
     .form-wrapper {
-        padding: 2.5rem 1.5rem;
+        padding: 0;
     }
     
     .form-header h2 {

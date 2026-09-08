@@ -18,23 +18,36 @@
     <header class="navbar">
         <div class="logo">VYERA</div>
         <nav class="nav-links">
-            <a href="#catalog">Catalog</a>
-            <a href="#interest-form-section">Inquiry</a>
+            <a href="#catalog" data-i18n="nav_catalog">Catalog</a>
+            <a href="#interest-form-section" data-i18n="nav_inquiry">Inquiry</a>
+            <button id="langToggle" class="lang-toggle">ES</button>
         </nav>
     </header>
 
     <main>
         <section id="hero" class="hero-section">
             <div class="hero-glow"></div>
-            <div class="hero-content">
-                <h1>Advanced Peptide Synthesis</h1>
-                <p>Pioneering the future of health and longevity with precision research-grade compounds.</p>
-                <a href="#catalog" class="cta-button">Explore Catalog</a>
+            
+            <div class="hero-top-left">
+                <p data-i18n="hero_top_left_1">PURITY<br>PRECISION<br>POTENTIAL</p>
+                <p data-i18n="hero_top_left_2">RESEARCH<br>FOR A<br>HEALTHIER<br>TOMORROW</p>
+            </div>
+            
+            <div class="hero-top-right">
+                <p data-i18n="hero_top_right">MORE<br>THAN<br>PEPTIDES</p>
+            </div>
+
+            <div class="hero-center">
+                <img src="./public/images/vyera-logo.png" alt="VYERA Main Logo" class="hero-main-logo">
+                <hr class="hero-divider">
+                <h1 data-i18n="hero_title_new">SCIENCE BEYOND<br>THE EXPECTED</h1>
+                <p data-i18n="hero_subtitle_new">ADVANCING RESEARCH.<br>EXPANDING POSSIBILITIES.</p>
+                <a href="#catalog" class="cta-button" data-i18n="hero_cta">EXPLORE CATALOG</a>
             </div>
         </section>
 
         <section id="catalog" class="catalog-section">
-            <h2>Research Compounds</h2>
+            <h2 data-i18n="catalog_title">Research Compounds</h2>
             <div class="catalog-grid">
                 
                 <!-- Product 1 -->
@@ -44,7 +57,7 @@
                     </div>
                     <div class="product-info">
                         <h3>BPC-157</h3>
-                        <button class="select-btn" data-peptide="BPC-157">Inquire</button>
+                        <button class="select-btn" data-peptide="BPC-157" data-i18n="catalog_inquire">Inquire</button>
                     </div>
                 </article>
 
@@ -55,7 +68,7 @@
                     </div>
                     <div class="product-info">
                         <h3>DSIP</h3>
-                        <button class="select-btn" data-peptide="DSIP">Inquire</button>
+                        <button class="select-btn" data-peptide="DSIP" data-i18n="catalog_inquire">Inquire</button>
                     </div>
                 </article>
 
@@ -66,7 +79,7 @@
                     </div>
                     <div class="product-info">
                         <h3>Epithalon</h3>
-                        <button class="select-btn" data-peptide="Epithalon">Inquire</button>
+                        <button class="select-btn" data-peptide="Epithalon" data-i18n="catalog_inquire">Inquire</button>
                     </div>
                 </article>
 
@@ -77,7 +90,7 @@
                     </div>
                     <div class="product-info">
                         <h3>GHK-Cu</h3>
-                        <button class="select-btn" data-peptide="GHK-Cu">Inquire</button>
+                        <button class="select-btn" data-peptide="GHK-Cu" data-i18n="catalog_inquire">Inquire</button>
                     </div>
                 </article>
 
@@ -88,7 +101,7 @@
                     </div>
                     <div class="product-info">
                         <h3>Glutathione</h3>
-                        <button class="select-btn" data-peptide="Glutathione">Inquire</button>
+                        <button class="select-btn" data-peptide="Glutathione" data-i18n="catalog_inquire">Inquire</button>
                     </div>
                 </article>
 
@@ -99,7 +112,7 @@
                     </div>
                     <div class="product-info">
                         <h3>K-Low</h3>
-                        <button class="select-btn" data-peptide="K-Low">Inquire</button>
+                        <button class="select-btn" data-peptide="K-Low" data-i18n="catalog_inquire">Inquire</button>
                     </div>
                 </article>
 
@@ -110,7 +123,7 @@
                     </div>
                     <div class="product-info">
                         <h3>KPV</h3>
-                        <button class="select-btn" data-peptide="KPV">Inquire</button>
+                        <button class="select-btn" data-peptide="KPV" data-i18n="catalog_inquire">Inquire</button>
                     </div>
                 </article>
 
@@ -121,7 +134,7 @@
                     </div>
                     <div class="product-info">
                         <h3>MOTS-c</h3>
-                        <button class="select-btn" data-peptide="MOTS-c">Inquire</button>
+                        <button class="select-btn" data-peptide="MOTS-c" data-i18n="catalog_inquire">Inquire</button>
                     </div>
                 </article>
 
@@ -132,7 +145,7 @@
                     </div>
                     <div class="product-info">
                         <h3>NAD+</h3>
-                        <button class="select-btn" data-peptide="NAD+">Inquire</button>
+                        <button class="select-btn" data-peptide="NAD+" data-i18n="catalog_inquire">Inquire</button>
                     </div>
                 </article>
 
@@ -143,57 +156,65 @@
                     </div>
                     <div class="product-info">
                         <h3>Retratutide</h3>
-                        <button class="select-btn" data-peptide="Retatrutide">Inquire</button>
+                        <button class="select-btn" data-peptide="Retatrutide" data-i18n="catalog_inquire">Inquire</button>
                     </div>
                 </article>
 
             </div>
         </section>
 
-        <section id="interest-form-section" class="form-section">
-            <div class="form-wrapper">
-                <div class="form-header">
-                    <h2>Research Inquiry</h2>
-                    <p>Submit your interest. Our team will contact you securely via WhatsApp to process your request.</p>
+        <section id="interest-form-section" class="inquiry-section">
+            <div class="inquiry-grid">
+                <div class="inquiry-image-side">
+                    <h2 data-i18n="inquiry_img_title">DISCIPLINE<br><br>INNOVATION<br><br>LONGEVITY</h2>
+                    <p data-i18n="inquiry_img_desc">Committed to the science that improves lives.</p>
                 </div>
-                
-                <form id="leadForm" class="vyera-form">
-                    <div class="input-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" required placeholder="Dr. John Doe">
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="+1 234 567 8900">
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="productSelect">Select Compound</label>
-                        <div class="select-wrapper">
-                            <select id="productSelect" name="productSelect" required>
-                                <option value="" disabled selected>Select a compound...</option>
-                                <option value="BPC-157">BPC-157</option>
-                                <option value="DSIP">DSIP</option>
-                                <option value="Epithalon">Epithalon</option>
-                                <option value="GHK-Cu">GHK-Cu</option>
-                                <option value="Glutathione">Glutathione</option>
-                                <option value="K-Low">K-Low</option>
-                                <option value="KPV">KPV</option>
-                                <option value="MOTS-c">MOTS-c</option>
-                                <option value="NAD+">NAD+</option>
-                                <option value="Retratutide">Retratutide</option>
-                            </select>
+                <div class="inquiry-form-side">
+                    <div class="form-wrapper">
+                        <div class="form-header">
+                            <h2 data-i18n="form_title">RESEARCH INQUIRY</h2>
+                            <p data-i18n="form_desc">Submit your interest. Our team will contact you securely via WhatsApp to process your request.</p>
                         </div>
+                        
+                        <form id="leadForm" class="vyera-form">
+                            <div class="input-group">
+                                <label for="fullName" data-i18n="form_name">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" required placeholder="Dr. John Doe">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="phone" data-i18n="form_phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+1 234 567 8900">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="productSelect" data-i18n="form_compound">Select Compound</label>
+                                <div class="select-wrapper">
+                                    <select id="productSelect" name="productSelect" required>
+                                        <option value="" disabled selected data-i18n="form_compound_default">Select a compound...</option>
+                                        <option value="BPC-157">BPC-157</option>
+                                        <option value="DSIP">DSIP</option>
+                                        <option value="Epithalon">Epithalon</option>
+                                        <option value="GHK-Cu">GHK-Cu</option>
+                                        <option value="Glutathione">Glutathione</option>
+                                        <option value="K-Low">K-Low</option>
+                                        <option value="KPV">KPV</option>
+                                        <option value="MOTS-c">MOTS-c</option>
+                                        <option value="NAD+">NAD+</option>
+                                        <option value="Retratutide">Retratutide</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="quantity" data-i18n="form_qty">Quantity (Vials)</label>
+                                <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                            </div>
+                            
+                            <button type="submit" class="submit-button" data-i18n="form_submit">Submit Inquiry</button>
+                        </form>
                     </div>
-                    
-                    <div class="input-group">
-                        <label for="quantity">Quantity (Vials)</label>
-                        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
-                    </div>
-                    
-                    <button type="submit" class="submit-button">Submit Inquiry</button>
-                </form>
+                </div>
             </div>
         </section>
     </main>
@@ -201,12 +222,13 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">VYERA</div>
-            <p class="disclaimer">All products are strictly for research and laboratory use only. Not for human consumption.</p>
-            <p class="copyright">&copy; 2026 VYERA Research. All rights reserved.</p>
+            <p class="disclaimer" data-i18n="footer_disclaimer">All products are strictly for research and laboratory use only. Not for human consumption.</p>
+            <p class="copyright" data-i18n="footer_copyright">&copy; 2026 VYERA Research. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- App Logic -->
+    <script src="./src/i18n.js"></script>
     <script src="./src/app.js"></script>
 </body>
 </html>
