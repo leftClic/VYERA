@@ -249,13 +249,52 @@
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">VYERA</div>
-            <p class="disclaimer" data-i18n="footer_disclaimer">All products are strictly for research and laboratory use only. Not for human consumption.</p>
-            <p class="copyright" data-i18n="footer_copyright">&copy; 2026 VYERA Research. All rights reserved.</p>
+   <footer class="vyera-footer">
+    <div class="footer-top">
+        <!-- Izquierda: Logo y subtítulo -->
+        <div class="footer-brand">
+            <div class="footer-logo-text">
+                <h2>VYERA</h2>
+                <span>RESEARCH PEPTIDES</span>
+            </div>
+            <div class="footer-divider"></div>
         </div>
-    </footer>
+
+        <!-- Centro: Enlaces de navegación -->
+        <nav class="footer-nav">
+            <a href="#" data-i18n="nav_research">RESEARCH</a>
+            <a href="#" data-i18n="nav_compounds">COMPOUNDS</a>
+            <a href="#" data-i18n="nav_about">ABOUT</a>
+            <a href="#" data-i18n="nav_contact">CONTACT</a>
+        </nav>
+
+        <!-- Derecha: Redes sociales y Lema -->
+        <div class="footer-social-motto">
+            <div class="footer-socials">
+                <!-- Ícono de Instagram -->
+                <a href="#" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <!-- Ícono de LinkedIn -->
+                <a href="#" aria-label="LinkedIn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-motto">
+                <span data-i18n="footer_motto_1">SCIENCE</span>
+                <span data-i18n="footer_motto_2">HEALTH</span>
+                <span data-i18n="footer_motto_3">LONGEVITY</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parte Inferior: Copyright y Aviso -->
+    <div class="footer-bottom">
+        <p class="footer-disclaimer" data-i18n="footer_disclaimer">All products are strictly for research and laboratory use only. Not for human consumption.</p>
+        <p class="footer-copyright">© 2026 VYERA Research. All rights reserved.</p>
+    </div>
+</footer>
 
     <!-- App Logic -->
     <script src="./src/i18n.js"></script>

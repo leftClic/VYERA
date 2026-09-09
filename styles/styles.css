@@ -541,144 +541,134 @@ h1, h2, h3, h4, .logo, .footer-logo {
 }
 
 /* =========================================
-   Footer
+   FOOTER SECTION
    ========================================= */
-footer {
-    padding: 5rem 5% 3rem;
+.vyera-footer {
     background-color: var(--color-bg-base);
-    border-top: 1px solid var(--color-border-subtle);
+    padding: 3rem 0 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.5);
 }
 
-.footer-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    text-align: center;
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5% 2.5rem 5%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    color: var(--color-text-primary);
-    margin-bottom: 2rem;
+/* Divisores verticales */
+.footer-divider {
+    width: 1px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-.disclaimer {
-    color: #666666;
-    font-size: 0.8rem;
-    max-width: 600px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.6;
+/* Bloque Izquierdo */
+.footer-brand, .footer-social-motto {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
-.copyright {
-    color: #444444;
+.footer-logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo-text h2 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: 3px;
+    margin-bottom: 0.2rem;
+}
+
+.footer-logo-text span {
+    font-size: 0.55rem;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Navegación Central */
+.footer-nav {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.footer-nav a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
     font-size: 0.75rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
 }
 
-/* =========================================
-   Responsive Breakpoints
-   ========================================= */
-
-/* Tablet & Smaller Desktop */
-@media (max-width: 1024px) {
-    .catalog-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
+.footer-nav a:hover {
+    color: #fff;
 }
 
-/* Mobile Devices */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 1rem 5%;
+/* Bloque Derecho */
+.footer-socials {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-socials a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #fff;
+}
+
+.footer-motto {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+}
+
+/* Textos de abajo */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 5% 0 5%;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 900px) {
+    .footer-top {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
     }
     
-    .hero-section {
-        background-image: url('../public/images/bg-mobile.jpeg');
-    }
-    
-    .nav-links {
+    .footer-brand, .footer-social-motto {
+        flex-direction: column;
         gap: 1.5rem;
     }
     
-    .nav-links a {
-        font-size: 0.75rem;
+    .footer-divider {
+        display: none; /* Ocultamos los divisores verticales en móviles */
     }
-    
-    .hero-main-logo {
-        width: 160px;
+
+    .footer-nav {
+        flex-direction: column;
+        gap: 1.5rem;
     }
-    
-    .hero-center h1 {
-        font-size: 2.25rem;
-        margin-top: 2rem;
-    }
-    
-    .hero-top-left, .hero-top-right {
-        display: none; /* Hide on mobile to avoid clutter */
-    }
-    
-    .hero-glow {
-        width: 200vw;
-        height: 200vw;
-    }
-    
-    .catalog-section {
-        padding: 6rem 5%;
-    }
-    
-    .catalog-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    
-    .inquiry-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .trust-badges-grid {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-    }
-    
-    .badge-item:nth-child(2) {
-        border-left: none;
-        border-right: none;
-        border-top: 1px solid rgba(255,255,255,0.15);
-        border-bottom: 1px solid rgba(255,255,255,0.15);
-        padding: 3rem 0;
-    }
-    
-    .inquiry-image-side {
-        padding: 4rem 5%;
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
         text-align: center;
-    }
-
-    .inquiry-form-side {
-        padding: 4rem 5%;
-    }
-    
-    .form-wrapper {
-        padding: 0;
-    }
-    
-    .form-header h2 {
-        font-size: 1.5rem;
-    }
-}
-
-/* Small Mobile */
-@media (max-width: 480px) {
-    .hero-content p {
-        font-size: 0.95rem;
-    }
-    
-    .cta-button {
-        padding: 1rem 2.5rem;
+        gap: 1rem;
     }
 }
 
@@ -744,4 +734,150 @@ footer {
     border-left: 1px solid rgba(255,255,255,0.15);
     border-right: 1px solid rgba(255,255,255,0.15);
     padding: 0 2rem;
+}
+
+/* =========================================
+   Responsive Breakpoints
+   ========================================= */
+
+/* Tablet & Smaller Desktop */
+@media (max-width: 1024px) {
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Mobile Devices */
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 5%;
+    }
+    
+    .nav-links {
+        gap: 1.5rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.75rem;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero-section {
+        background-image: url('../public/images/bg-mobile.jpeg');
+        background-position: center bottom;
+    }
+    
+    .hero-main-logo {
+        width: 160px;
+    }
+    
+.hero-top-left {
+        display: block; 
+        text-align: left;
+        top: 12%;
+        left: 5%;
+        font-size: 0.65rem; 
+        max-width: 45%; 
+        line-height: 1.5;
+    }
+    
+    .hero-top-left p:first-child {
+        margin-bottom: 1rem;
+    }
+    
+.hero-top-right {
+        display: block;
+        top: 12%;
+        right: 5%;
+        font-size: 0.65rem;
+        max-width: 45%; 
+        text-align: right;
+        line-height: 1.5;
+    }
+    
+    .hero-center {
+        top: 55%;
+        width: 90%;
+    }
+
+    .hero-center h1 {
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
+
+    .hero-glow {
+        width: 200vw;
+        height: 200vw;
+    }
+    
+    /* --- CATALOG SECTION --- */
+    .catalog-section {
+        padding: 4rem 1rem;
+    }
+    
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    /* --- INQUIRY SECTION --- */
+    .inquiry-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .inquiry-image-side {
+        padding: 4rem 1rem;
+        align-items: center; /* Centra el contenido */
+    }
+
+    .inquiry-image-side h2, 
+    .inquiry-image-side p {
+        text-align: center;
+    }
+
+    .inquiry-divider {
+        margin: 1.5rem auto; /* Centra la línea */
+        width: 150px;
+    }
+
+    .inquiry-form-side {
+        padding: 4rem 5%;
+    }
+    
+    .form-wrapper {
+        padding: 0;
+    }
+    
+    .form-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* --- TRUST BADGES --- */
+    .trust-badges-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    
+    .badge-item:nth-child(2) {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+        padding: 3rem 0;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+    
+    .cta-button {
+        padding: 1rem 2.5rem;
+    }
 }
