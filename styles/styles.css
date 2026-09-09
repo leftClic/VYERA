@@ -46,6 +46,13 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden; /* Esto apaga el scroll horizontal por completo */
+    width: 100%;
+    position: relative;
+}
+
 /* =========================================
    Typography
    ========================================= */
@@ -642,36 +649,6 @@ h1, h2, h3, h4, .logo, .footer-logo {
     letter-spacing: 0.5px;
 }
 
-/* Adaptación a celulares */
-@media (max-width: 900px) {
-    .footer-top {
-        flex-direction: column;
-        gap: 3rem;
-        text-align: center;
-    }
-    
-    .footer-brand, .footer-social-motto {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .footer-divider {
-        display: none; /* Ocultamos los divisores verticales en móviles */
-    }
-
-    .footer-nav {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-    }
-}
-
 /* =========================================
    Trust Badges Section
    ========================================= */
@@ -748,7 +725,36 @@ h1, h2, h3, h4, .logo, .footer-logo {
     }
 }
 
-/* Mobile Devices */
+/* Adaptación a celulares (Footer) */
+@media (max-width: 900px) {
+    .footer-top {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .footer-brand, .footer-social-motto {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .footer-divider {
+        display: none; /* Ocultamos los divisores verticales en móviles */
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
 /* Mobile Devices */
 @media (max-width: 768px) {
     .navbar {
@@ -773,7 +779,7 @@ h1, h2, h3, h4, .logo, .footer-logo {
         width: 160px;
     }
     
-.hero-top-left {
+    .hero-top-left {
         display: block; 
         text-align: left;
         top: 12%;
@@ -787,7 +793,7 @@ h1, h2, h3, h4, .logo, .footer-logo {
         margin-bottom: 1rem;
     }
     
-.hero-top-right {
+    .hero-top-right {
         display: block;
         top: 12%;
         right: 5%;
@@ -831,7 +837,7 @@ h1, h2, h3, h4, .logo, .footer-logo {
     
     .inquiry-image-side {
         padding: 4rem 1rem;
-        align-items: center; /* Centra el contenido */
+        align-items: center;
     }
 
     .inquiry-image-side h2, 
@@ -840,7 +846,7 @@ h1, h2, h3, h4, .logo, .footer-logo {
     }
 
     .inquiry-divider {
-        margin: 1.5rem auto; /* Centra la línea */
+        margin: 1.5rem auto; 
         width: 150px;
     }
 
