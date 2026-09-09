@@ -81,6 +81,21 @@ app.get('/health', (req, res) => {
     res.status(200).json({ status: 'OK', message: 'Vyera API is running' });
 });
 
+// Ruta de "Ping" para UptimeRobot (Mantiene despierto a Render y Supabase)
+app.get('/ping', async (req, res) => {
+    try {
+        // Hacemos una consulta minúscula a tu tabla 'leads' para mantener viva la BD
+        const { data, error } = await supabase.from('leads').select('*').limit(1);
+        
+        if (error) throw error;
+        
+        res.status(200).send('Backend en Render y BD en Supabase están 100% despiertos.');
+    } catch (err) {
+        console.error('Error en el Ping:', err);
+        res.status(500).send('Error al conectar con Supabase en el ping.');
+    }
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`🚀 VYERA Backend API is running on http://localhost:${PORT}`);
