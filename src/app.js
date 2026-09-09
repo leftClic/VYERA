@@ -122,3 +122,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ==========================================
+// Product Image Carousel Logic
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Buscamos todas las cajas de imágenes de los productos
+    const productImages = document.querySelectorAll('.product-image');
+
+    productImages.forEach(container => {
+        const originalImg = container.querySelector('img');
+        if (!originalImg) return;
+
+        // Obtenemos la ruta original y creamos la ruta de la infografía
+        const currentSrc = originalImg.getAttribute('src');
+        const descSrc = currentSrc.replace('.jpeg', '-d.jpeg');
+        const altText = originalImg.getAttribute('alt');
+
+        // Preparamos el contenedor
+        container.classList.add('carousel-container');
+        
+        // Creamos la pista deslizable
+        const track = document.createElement('div');
+        track.classList.add('carousel-track');
+
+        // Metemos la imagen del frasco original
+        track.appendChild(originalImg);
+
+        // Creamos y metemos la imagen de la infografía
+        const descImg = document.createElement('img');
+        descImg.src = descSrc;
+        descImg.alt = altText + ' Details';
+        track.appendChild(descImg);
+
+        container.appendChild(track);
+
+        // Creamos las flechas para la PC
+        const prevBtn = document.createElement('button');
+        prevBtn.classList.add('carousel-btn', 'prev-btn');
+        prevBtn.innerHTML = '&#10094;'; // Símbolo <
+        
+        const nextBtn = document.createElement('button');
+        nextBtn.classList.add('carousel-btn', 'next-btn');
+        nextBtn.innerHTML = '&#10095;'; // Símbolo >
+
+        container.appendChild(prevBtn);
+        container.appendChild(nextBtn);
+
+        // Le damos función a las flechas (mover el ancho exacto de una imagen)
+        nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+        });
+    });
+});

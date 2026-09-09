@@ -714,6 +714,80 @@ h1, h2, h3, h4, .logo, .footer-logo {
 }
 
 /* =========================================
+   Product Image Carousel (Slider)
+   ========================================= */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Hace que la imagen se acomode sola al deslizar */
+    scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
+    -ms-overflow-style: none; /* Oculta la barra en IE/Edge */
+    scroll-behavior: smooth;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none; /* Oculta la barra en Chrome/Safari/móviles */
+}
+
+.carousel-track img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scroll-snap-align: center; /* Centra la imagen al terminar el swipe */
+}
+
+/* Diseño de las flechitas */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(5, 5, 5, 0.6);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    opacity: 0; /* Ocultas por defecto */
+    transition: opacity 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Las flechas aparecen al poner el mouse en PC */
+.carousel-container:hover .carousel-btn {
+    opacity: 1; 
+}
+
+.carousel-btn:hover {
+    background: rgba(191, 161, 115, 0.9); /* Color dorado premium al pasar el mouse */
+    border-color: #BFA173;
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* Comportamiento en Celulares */
+@media (max-width: 768px) {
+    .carousel-btn {
+        display: none; /* Ocultamos las flechas en móvil para obligar al usuario a usar el Swipe táctil */
+    }
+}
+
+/* =========================================
    Responsive Breakpoints
    ========================================= */
 
