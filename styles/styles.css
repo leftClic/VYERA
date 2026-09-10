@@ -109,6 +109,37 @@ h1, h2, h3, h4, .logo, .footer-logo {
     text-shadow: 0 0 15px rgba(255,255,255,0.4);
 }
 
+/* =========================================
+   Navbar Social Icons
+   ========================================= */
+.nav-socials {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    margin-right: 1.5rem; /* Separación entre íconos y texto de navegación */
+    padding-right: 1.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.2); /* Una línea vertical sutil */
+}
+
+.nav-socials a {
+    display: flex;
+    align-items: center;
+    color: var(--color-text-secondary);
+    transition: var(--transition-smooth);
+}
+
+.nav-socials a:hover {
+    color: var(--color-gold);
+    transform: translateY(-2px);
+}
+
+/* Ocultar en móviles para evitar que el menú colapse */
+@media (max-width: 768px) {
+    .nav-socials {
+        display: none;
+    }
+}
+
 .lang-toggle {
     background: transparent;
     border: 1px solid var(--color-border-subtle);

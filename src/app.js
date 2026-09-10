@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (response.ok) {
                     // Success! Construct WhatsApp URL
-                    const waNumber = '50587618158';
+                    const waNumber = '50557476661';
                     const rawMessage = `Hola VYERA Research. Soy ${fullName}. Me interesa el compuesto ${productSelect} (${quantity} unidades). Mi número es ${phone}.`;
                     const encodedMessage = encodeURIComponent(rawMessage);
                     const waUrl = `https://wa.me/${waNumber}?text=${encodedMessage}`;
